@@ -22,10 +22,6 @@ app.get("/", (req, res) => {
   res.send("Hi from express");
 });
 
-app.listen(PORT, () => {
-  console.log(`Listening on port: ${PORT}`);
-});
-
 // ./tests TEST
 app.post("/authorized_post_request", authMiddleWare, (req, res) => {
   const user = req.user;
@@ -139,4 +135,8 @@ app.patch("/ratings", authMiddleWare, async (req, res) => {
   } catch (error) {
     console.log(error.message);
   }
+});
+
+app.listen(PORT, () => {
+  console.log(`Listening on port: ${PORT}`);
 });
