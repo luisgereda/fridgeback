@@ -1,7 +1,7 @@
 const express = require("express");
 const { PORT } = require("./config/constants");
 const loggerMiddleWare = require("morgan");
-const cors = require("cors");
+
 const authRouter = require("./routers/auth");
 const authMiddleWare = require("./auth/middleware");
 const Users = require("./models").user;
@@ -13,7 +13,7 @@ const app = new express();
 app.use(loggerMiddleWare("dev"));
 const bodyParserMiddleWare = express.json();
 app.use(bodyParserMiddleWare);
-
+const cors = require("cors");
 app.use(cors());
 
 app.use("/", authRouter);
