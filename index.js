@@ -13,8 +13,8 @@ const app = new express();
 app.use(loggerMiddleWare("dev"));
 const bodyParserMiddleWare = express.json();
 app.use(bodyParserMiddleWare);
-const cors = require("cors");
-app.use(cors());
+const corsMiddleWare = require("cors");
+app.use(corsMiddleWare());
 
 app.use("/", authRouter);
 
